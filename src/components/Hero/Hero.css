@@ -1,0 +1,433 @@
+.hero {
+  padding-top: 120px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Частицы фона */
+.particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  background: rgba(79, 70, 229, 0.1);
+  border-radius: 50%;
+  animation: float 15s infinite linear;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+    opacity: 0.7;
+  }
+}
+
+/* Волны */
+.waves {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 1;
+}
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 100px;
+  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path d="M321.39 56.44c58-10.79 114.16-30.13 172-41.86 82.39-16.72 168.19-17.73 250.45-.39C823.78 31 906.67 72 985.66 92.83c70.05 18.48 146.53 26.09 214.34 3V0H0v27.35a600.21 600.21 0 00321.39 29.09z" fill="%234f46e5" opacity="0.1"/></svg>');
+  animation: wave 10s linear infinite;
+}
+
+.wave-1 {
+  opacity: 0.7;
+  animation-delay: 0s;
+  bottom: 0;
+}
+
+.wave-2 {
+  opacity: 0.5;
+  animation-delay: -5s;
+  bottom: 10px;
+}
+
+.wave-3 {
+  opacity: 0.3;
+  animation-delay: -2s;
+  bottom: 15px;
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-text {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease;
+}
+
+.hero-text.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-text.animate-in {
+  animation: slideIn 1s ease forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Анимация букв заголовка */
+.title-animate {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+
+.char {
+  display: inline-block;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: white;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: charAppear 0.5s ease forwards;
+}
+
+@keyframes charAppear {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Эффект печатающей машинки */
+.typewriter {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #d1d5db;
+  overflow: hidden;
+  border-right: 3px solid #4f46e5;
+  white-space: nowrap;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #4f46e5 }
+}
+
+/* Плавное появление текста */
+.fade-in-text {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  color: #9ca3af;
+  opacity: 0;
+  animation: fadeInUp 1s ease 1.5s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-btns {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  opacity: 0;
+  animation: fadeInUp 1s ease 2s forwards;
+}
+
+/* Пульсирующая кнопка */
+.pulse-btn {
+  position: relative;
+  overflow: hidden;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(79, 70, 229, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(79, 70, 229, 0);
+  }
+}
+
+.pulse-btn:hover {
+  animation: none;
+}
+
+.btn-text, .btn-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.pulse-btn:hover .btn-text {
+  transform: translateX(-5px);
+}
+
+.pulse-btn:hover .btn-icon {
+  transform: translateX(5px);
+}
+
+/* Кнопка с свечением */
+.hover-glow {
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.hover-glow::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #4f46e5, #8b5cf6, #4f46e5);
+  z-index: -1;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hover-glow:hover::before {
+  opacity: 1;
+}
+
+/* Индикатор прокрутки */
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  animation: fadeIn 1s ease 3s forwards;
+}
+
+.mouse {
+  width: 30px;
+  height: 50px;
+  border: 2px solid #4f46e5;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.wheel {
+  width: 4px;
+  height: 10px;
+  background-color: #4f46e5;
+  border-radius: 2px;
+  animation: scroll 2s infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+}
+
+.arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.arrow span {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid #4f46e5;
+  border-right: 2px solid #4f46e5;
+  transform: rotate(45deg);
+  animation: arrow 2s infinite;
+}
+
+.arrow span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.arrow span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes arrow {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translate(-5px, -5px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+}
+
+/* Анимация кода */
+.code-animation {
+  position: relative;
+}
+
+.code-icon {
+  background: rgba(15, 23, 42, 0.8);
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid #374151;
+  position: relative;
+  overflow: hidden;
+}
+
+.code-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #4f46e5, #8b5cf6, #4f46e5);
+  animation: codeLine 3s linear infinite;
+}
+
+@keyframes codeLine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.code-snippet {
+  margin: 0;
+  color: #60a5fa;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  font-family: 'Courier New', monospace;
+}
+
+.code-snippet code {
+  display: block;
+  animation: typeCode 4s steps(40) infinite;
+}
+
+@keyframes typeCode {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  .title-animate {
+    justify-content: center;
+  }
+  
+  .code-animation {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 100px;
+  }
+  
+  .char {
+    font-size: 2.5rem;
+  }
+  
+  .typewriter {
+    font-size: 1.5rem;
+    white-space: normal;
+    border-right: none;
+    animation: none;
+  }
+  
+  .hero-btns {
+    flex-direction: column;
+  }
+  
+  .scroll-indicator {
+    bottom: 20px;
+  }
+}

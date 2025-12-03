@@ -1,0 +1,10 @@
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #1a1a1a; /* Темно-серый фон */
+}
+
+main {
+  flex: 1;
+}

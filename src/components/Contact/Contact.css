@@ -1,0 +1,146 @@
+#contact h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  color: #ffffff; /* Белый */
+  position: relative;
+}
+
+#contact h2::after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 4px;
+  background-color: #4f46e5;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+  min-width: 50px;
+  color: #4f46e5;
+}
+
+.contact-details h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+  color: #ffffff; /* Белый */
+}
+
+.contact-value {
+  font-weight: 600;
+  color: #ffffff; /* Белый */
+  margin-bottom: 0.25rem;
+}
+
+.contact-description {
+  font-size: 0.9rem;
+  color: #9ca3af; /* Серый */
+}
+
+.contact-form h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.75rem;
+  color: #ffffff; /* Белый */
+}
+
+.form-description {
+  color: #d1d5db; /* Светло-серый */
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #4b5563;
+  background-color: #374151; /* Темный */
+  color: #ffffff; /* Белый */
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: #9ca3af; /* Серый */
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.success-message {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: rgba(16, 185, 129, 0.2);
+  border: 1px solid #10b981;
+  border-radius: 8px;
+  color: #10b981;
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 992px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  #contact h2 {
+    font-size: 2rem;
+  }
+}
