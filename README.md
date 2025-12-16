@@ -1,7 +1,5 @@
 # 🌐 Personal Portfolio Website - Ксения Гуренко
 
-Профессиональный сайт-портфолио Frontend-разработчика с современным дизайном и анимациями.
-
 ![Portfolio Preview](https://img.shields.io/badge/Status-Active-success)
 ![React](https://img.shields.io/badge/React-18.2-blue)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
